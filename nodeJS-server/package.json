@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-node-red-1",
+  "version": "1.0.0",
+  "description": "NodeJS REST API server for receiving user imports and storing the user data in CSV.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Mradvanyi123/NodeJS-Node-RED.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Node-RED"
+  ],
+  "author": "Radvanyi Matyas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mradvanyi123/NodeJS-Node-RED/issues"
+  },
+  "homepage": "https://github.com/Mradvanyi123/NodeJS-Node-RED#readme",
+  "dependencies": {
+    "convert-csv-to-json": "^1.5.0",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "joi": "^17.7.0",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7"
+  }
+}
