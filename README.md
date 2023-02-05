@@ -78,7 +78,7 @@ Example input data:
 
 
 ### Installation
-Clone the repository: \ 
+Clone the repository:  
 ```markdown
 git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git
 ```
