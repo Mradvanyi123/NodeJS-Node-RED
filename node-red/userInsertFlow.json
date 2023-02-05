@@ -1,0 +1,938 @@
+[
+  {
+    "id": "f7d221d7272d861c",
+    "type": "tab",
+    "label": "NodeRED <-> API server",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "bd8a13cbfb16f3e2",
+    "type": "group",
+    "z": "f7d221d7272d861c",
+    "name": "GET methods for testing",
+    "style": {
+      "stroke": "#a4a4a4",
+      "label": true,
+      "color": "#000000",
+      "fill": "#ffefbf"
+    },
+    "nodes": [
+      "b89b1146757f4e86",
+      "1cb6372b666fa8e2",
+      "214d92645783ad1b",
+      "2c82a6b7f354e206",
+      "e19219131aa1b924",
+      "077883eb474ac2ef",
+      "7a3b1fe2d0de613d"
+    ],
+    "x": 74,
+    "y": 19,
+    "w": 652,
+    "h": 162
+  },
+  {
+    "id": "7529cc28fadd6de5",
+    "type": "group",
+    "z": "f7d221d7272d861c",
+    "name": "Test csv/json file generation",
+    "style": {
+      "stroke": "#a4a4a4",
+      "label": true,
+      "color": "#000000",
+      "fill": "#bfdbef"
+    },
+    "nodes": [
+      "6d6c576e5450a946",
+      "1328dff375bc099b",
+      "9afb3848ca1ebfc7",
+      "26ca983790d591f5",
+      "018e108536bfb4eb",
+      "2ed71e4e0c9658d3",
+      "9bbe6a5f7c96efbb"
+    ],
+    "x": 74,
+    "y": 759,
+    "w": 932,
+    "h": 162
+  },
+  {
+    "id": "cdd04cd64d09b83a",
+    "type": "group",
+    "z": "f7d221d7272d861c",
+    "name": "User insert",
+    "style": {
+      "stroke": "#a4a4a4",
+      "label": true,
+      "color": "#000000",
+      "fill": "#e3f3d3"
+    },
+    "nodes": [
+      "a0f890efcf762b73",
+      "a1b5393345edf175",
+      "5364dd42ca64394e",
+      "f3e0aacc48b32381",
+      "1de8862a7ef84867",
+      "197b828b2b87864a",
+      "996dd6d1086defc0",
+      "c37dbfea263eb85d",
+      "31247dfa34446859",
+      "19c68d2824b3d0e4",
+      "31f170119c56c368",
+      "e552f17f71f50175",
+      "2afbae943b3bc8f4",
+      "cd49aaf46bc542ab",
+      "40639e23b8882de7",
+      "c1959004fa35908e",
+      "e96aaa5871d1591e",
+      "15529975e25e4f11",
+      "cf604cb117aed676",
+      "7a2fc04b3bf24279",
+      "e69fa502ddf56c84",
+      "2fadc07e1bce5d9f",
+      "de67ae11cb9727d1"
+    ],
+    "x": 74,
+    "y": 239,
+    "w": 1172,
+    "h": 442
+  },
+  {
+    "id": "a0f890efcf762b73",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "manul read json",
+    "props": [
+      {
+        "p": "filename",
+        "v": "/home/radvanyi/Documents/software4production/users.json",
+        "vt": "str"
+      },
+      {
+        "p": "format",
+        "v": "json",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 200,
+    "y": 360,
+    "wires": [
+      [
+        "a1b5393345edf175"
+      ]
+    ]
+  },
+  {
+    "id": "a1b5393345edf175",
+    "type": "file in",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "read file",
+    "filename": "",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "ascii",
+    "allProps": false,
+    "x": 400,
+    "y": 360,
+    "wires": [
+      [
+        "197b828b2b87864a"
+      ]
+    ]
+  },
+  {
+    "id": "5364dd42ca64394e",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1130,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "f3e0aacc48b32381",
+    "type": "http request",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "postUsers",
+    "method": "POST",
+    "ret": "obj",
+    "paytoqs": "body",
+    "url": "http://127.0.0.1:8081/postUsers",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "senderr": false,
+    "x": 940,
+    "y": 500,
+    "wires": [
+      [
+        "5364dd42ca64394e",
+        "2fadc07e1bce5d9f"
+      ]
+    ]
+  },
+  {
+    "id": "1de8862a7ef84867",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "read every 5s",
+    "props": [
+      {
+        "p": "filename",
+        "v": "/home/radvanyi/Documents/software4production/users.json",
+        "vt": "str"
+      },
+      {
+        "p": "format",
+        "v": "json",
+        "vt": "str"
+      }
+    ],
+    "repeat": "5",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 200,
+    "y": 440,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "197b828b2b87864a",
+    "type": "switch",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "Check if file si not empty",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "nempty"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 610,
+    "y": 360,
+    "wires": [
+      [
+        "e69fa502ddf56c84"
+      ]
+    ]
+  },
+  {
+    "id": "996dd6d1086defc0",
+    "type": "exec",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "command": "rm",
+    "addpay": "filename",
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "winHide": false,
+    "oldrc": false,
+    "name": "remove file",
+    "x": 550,
+    "y": 600,
+    "wires": [
+      [],
+      [
+        "19c68d2824b3d0e4"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "c37dbfea263eb85d",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "/home/radvanyi/Documents/software4production/users2.json",
+    "payloadType": "str",
+    "x": 330,
+    "y": 640,
+    "wires": [
+      [
+        "996dd6d1086defc0"
+      ]
+    ]
+  },
+  {
+    "id": "31247dfa34446859",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "Standard output",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 740,
+    "y": 560,
+    "wires": []
+  },
+  {
+    "id": "19c68d2824b3d0e4",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "Standard error",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 740,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "31f170119c56c368",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "Return code",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 730,
+    "y": 640,
+    "wires": []
+  },
+  {
+    "id": "e552f17f71f50175",
+    "type": "json",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "json",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 530,
+    "y": 520,
+    "wires": [
+      [
+        "f3e0aacc48b32381"
+      ]
+    ]
+  },
+  {
+    "id": "b89b1146757f4e86",
+    "type": "http request",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "Get all Users stored in CSV",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "http://127.0.0.1:8081/getUsers",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "senderr": false,
+    "x": 400,
+    "y": 140,
+    "wires": [
+      [
+        "214d92645783ad1b"
+      ]
+    ]
+  },
+  {
+    "id": "1cb6372b666fa8e2",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 180,
+    "y": 140,
+    "wires": [
+      [
+        "b89b1146757f4e86"
+      ]
+    ]
+  },
+  {
+    "id": "214d92645783ad1b",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 610,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "2afbae943b3bc8f4",
+    "type": "switch",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "check status code 200",
+    "property": "statusCode",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "200",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 300,
+    "y": 600,
+    "wires": [
+      [
+        "996dd6d1086defc0"
+      ]
+    ]
+  },
+  {
+    "id": "2c82a6b7f354e206",
+    "type": "http request",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "Get specific User",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "http://127.0.0.1:8081/getUser?userName={{userName}}",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "senderr": false,
+    "x": 370,
+    "y": 100,
+    "wires": [
+      [
+        "077883eb474ac2ef"
+      ]
+    ]
+  },
+  {
+    "id": "e19219131aa1b924",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "userName",
+    "props": [
+      {
+        "p": "userName",
+        "v": "Radvanyi Matyas33",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 180,
+    "y": 100,
+    "wires": [
+      [
+        "2c82a6b7f354e206"
+      ]
+    ]
+  },
+  {
+    "id": "077883eb474ac2ef",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 610,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "7a3b1fe2d0de613d",
+    "type": "comment",
+    "z": "f7d221d7272d861c",
+    "g": "bd8a13cbfb16f3e2",
+    "name": "Get Specific user",
+    "info": "To get the the user you want to check please add the users userName to the \"userName\" insject node.",
+    "x": 200,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "cd49aaf46bc542ab",
+    "type": "comment",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "Import users",
+    "info": "To get the the import users please specify the full path to the CSV file in the inject nodes below. Also please specify the file format.",
+    "x": 190,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "40639e23b8882de7",
+    "type": "comment",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "read every 5s",
+    "info": "To start using the \"read every 5s\" inject node please connect the \"read every 5s\" and the \"read JSON file\" nodes",
+    "x": 190,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "c1959004fa35908e",
+    "type": "csv",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "sep": ",",
+    "hdrin": true,
+    "hdrout": "none",
+    "multi": "mult",
+    "ret": "\\n",
+    "temp": "",
+    "skip": "0",
+    "strings": false,
+    "include_empty_strings": "",
+    "include_null_values": "",
+    "x": 530,
+    "y": 480,
+    "wires": [
+      [
+        "cf604cb117aed676"
+      ]
+    ]
+  },
+  {
+    "id": "e96aaa5871d1591e",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "manul read csv",
+    "props": [
+      {
+        "p": "filename",
+        "v": "/home/radvanyi/Documents/software4production/users.csv",
+        "vt": "str"
+      },
+      {
+        "p": "format",
+        "v": "csv",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 200,
+    "y": 280,
+    "wires": [
+      [
+        "a1b5393345edf175"
+      ]
+    ]
+  },
+  {
+    "id": "15529975e25e4f11",
+    "type": "switch",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "parse based on msg.format",
+    "property": "format",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "csv",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "json",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 320,
+    "y": 500,
+    "wires": [
+      [
+        "c1959004fa35908e"
+      ],
+      [
+        "e552f17f71f50175"
+      ]
+    ]
+  },
+  {
+    "id": "cf604cb117aed676",
+    "type": "change",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "payload->payload.users",
+    "rules": [
+      {
+        "t": "move",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.users",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 730,
+    "y": 480,
+    "wires": [
+      [
+        "f3e0aacc48b32381"
+      ]
+    ]
+  },
+  {
+    "id": "7a2fc04b3bf24279",
+    "type": "link in",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "links": [
+      "e69fa502ddf56c84"
+    ],
+    "x": 155,
+    "y": 500,
+    "wires": [
+      [
+        "15529975e25e4f11"
+      ]
+    ]
+  },
+  {
+    "id": "e69fa502ddf56c84",
+    "type": "link out",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "mode": "link",
+    "links": [
+      "7a2fc04b3bf24279"
+    ],
+    "x": 755,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "2fadc07e1bce5d9f",
+    "type": "link out",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "mode": "link",
+    "links": [
+      "de67ae11cb9727d1"
+    ],
+    "x": 1075,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "de67ae11cb9727d1",
+    "type": "link in",
+    "z": "f7d221d7272d861c",
+    "g": "cdd04cd64d09b83a",
+    "name": "",
+    "links": [
+      "2fadc07e1bce5d9f"
+    ],
+    "x": 155,
+    "y": 600,
+    "wires": [
+      [
+        "2afbae943b3bc8f4"
+      ]
+    ]
+  },
+  {
+    "id": "6d6c576e5450a946",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "generate csv file",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "filename",
+        "v": "/home/radvanyi/Documents/software4production/users.csv",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "userName, email, address, creationTimestamp",
+    "payloadType": "str",
+    "x": 200,
+    "y": 800,
+    "wires": [
+      [
+        "9afb3848ca1ebfc7"
+      ]
+    ]
+  },
+  {
+    "id": "1328dff375bc099b",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "generate json file",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "filename",
+        "v": "/home/radvanyi/Documents/software4production/users.json",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{\t  \"users\": [\t    {\t      \"userName\": \"Radvanyi Matyas33\",\t      \"email\": \"mradvanyi0122@gmail.com\",\t      \"address\": \"Rohovce 49 93030\",\t      \"creationTimestamp\": \"7574861c3ec89941\"\t    }\t  ]\t}",
+    "payloadType": "jsonata",
+    "x": 200,
+    "y": 880,
+    "wires": [
+      [
+        "26ca983790d591f5"
+      ]
+    ]
+  },
+  {
+    "id": "9afb3848ca1ebfc7",
+    "type": "file",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "",
+    "filename": "",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "false",
+    "encoding": "ascii",
+    "x": 420,
+    "y": 840,
+    "wires": [
+      [
+        "018e108536bfb4eb"
+      ]
+    ]
+  },
+  {
+    "id": "26ca983790d591f5",
+    "type": "file",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "",
+    "filename": "",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "ascii",
+    "x": 420,
+    "y": 880,
+    "wires": [
+      [
+        "2ed71e4e0c9658d3"
+      ]
+    ]
+  },
+  {
+    "id": "018e108536bfb4eb",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 910,
+    "y": 840,
+    "wires": []
+  },
+  {
+    "id": "2ed71e4e0c9658d3",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 910,
+    "y": 880,
+    "wires": []
+  },
+  {
+    "id": "9bbe6a5f7c96efbb",
+    "type": "inject",
+    "z": "f7d221d7272d861c",
+    "g": "7529cc28fadd6de5",
+    "name": "add user to csv file",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "filename",
+        "v": "/home/radvanyi/Documents/software4production/users.csv",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "Radvanyi Matyas22, mradvanyi0122@gmail.com, Rohovce 49 93030, 7574861c3ec89941,",
+    "payloadType": "str",
+    "x": 210,
+    "y": 840,
+    "wires": [
+      [
+        "9afb3848ca1ebfc7"
+      ]
+    ]
+  },
+  {
+    "id": "cbfab50303adeefe",
+    "type": "catch",
+    "z": "f7d221d7272d861c",
+    "name": "",
+    "scope": null,
+    "uncaught": false,
+    "x": 140,
+    "y": 720,
+    "wires": [
+      [
+        "430bced0369b5e88"
+      ]
+    ]
+  },
+  {
+    "id": "430bced0369b5e88",
+    "type": "debug",
+    "z": "f7d221d7272d861c",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "error",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 300,
+    "y": 720,
+    "wires": []
+  }
+]
