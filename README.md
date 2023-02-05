@@ -50,14 +50,36 @@ Example response body:
 }
 ```
 
-- POST - **/postUsers**
-The 
+- POST - **/postUsers** \
+The /postUsers endpoints purpose is to enable insert of users ot a CSV file which the server controls.
+The usersData is passed in the requests body.
+Example input data:
+```json
+{
+  "users":
+  [
+    {
+      "userName":"Radvanyi Matyas",
+      "email":"mradvanyi0122@gmail.com",
+      "address": "Rohovce 49 93030",
+      "creationTimestamp": "7574861c3ec89941"
+    },
+    {
+      "userName":"Radvanyi Tamas",
+      "email":"tradvanyi@gmail.com",
+      "address": "Rohovce 44 93030",
+      "creationTimestamp": "7574861c3ec89941"
+    }
+  ]
+}
+```
+
 
 ### Installation
-Clone the repository: 
-`` git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git `` \
-Install packages: ``npm instatt``
-Start server: ``npm start``
+Clone the repository: \
+``` git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git ``` \
+Install packages: ``npm install```
+Start server: ```npm start```
 
 ----
 ## Node-RED
