@@ -20,6 +20,8 @@ The main objective of the REST API server is to provide three API endpoints.
 - port: **8081**
 
 ### Endpoints
+[Postman collection](/NodeJS%20----%20Node-RED.postman_collection.json)
+
 
 - GET - **/getUsers** - The endpoint returns all users stored in the *nodeJS-server/users.csv* file.\
 The stored users will be in the response body in the following content:
@@ -76,10 +78,18 @@ Example input data:
 
 
 ### Installation
-Clone the repository: \
-``` git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git ``` \
-Install packages: ``npm install```
-Start server: ```npm start```
+Clone the repository: \ 
+```markdown
+git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git
+```
+Install packages: 
+```markdown
+npm install
+```
+Start server: 
+```markdown
+npm start
+```
 
 ----
 ## Node-RED
