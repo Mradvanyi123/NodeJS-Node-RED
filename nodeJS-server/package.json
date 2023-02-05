@@ -1,6 +1,6 @@
 {
   "name": "nodejs-node-red-1",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "NodeJS REST API server for receiving user imports and storing the user data in CSV.",
   "main": "main.js",
   "scripts": {
