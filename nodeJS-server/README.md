@@ -82,11 +82,23 @@ Clone the repository:
 ```markdown
 git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git
 ```
-Install packages: 
+
+Install packages in the directory *NodeJS-Node-RED/node-JS-server/*.
 ```markdown
 npm install
 ```
-Start server: 
+
+Start server in the directory *NodeJS-Node-RED/node-JS-server/*.
 ```markdown
 npm start
+```
+
+Or install the server with __npm__
+```markdown
+npm i nodejs-node-red-1
+```
+
+Usage:
+```javascript
+const APIserver=require('nodejs-node-red-1')
 ```
