@@ -91,6 +91,16 @@ Start server:
 npm start
 ```
 
+Or install the server with __npm__
+```markdown
+npm i nodejs-node-red-1
+```
+
+Usage:
+```javascript
+const APIserver=require('nodejs-node-red-1')
+```
+
 ----
 ## Node-RED
 
