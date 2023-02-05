@@ -8,7 +8,7 @@ exports.insertUsersToCSV = async (users) => {
     try {
         users.forEach(user => {
             let csvRow = '';
-            Object.entries(user).forEach(([ value]) => {
+            Object.entries(user).forEach(([ key,value]) => {
                 csvRow += `${value}, `;
             });
             csvRow += '\n';
