@@ -82,9 +82,13 @@ Clone the repository:
 ```markdown
 git clone git@github.com:Mradvanyi123/NodeJS-Node-RED.git
 ```
+Move to the server directory:
+```markdown
+cd NodeJS-Node-RED/nodeJS-server
+```
 Install packages: 
 ```markdown
-npm install
+npm i
 ```
 Start server: 
 ```markdown
